@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="module" client="site" method="upgrade">
+	<name>mod_regauth</name>
+	<author>Ron Crans</author>
+	<creationDate>August 2024</creationDate>
+	<copyright>(C) 2024 RJCreations; All rights reserved</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+	<authorEmail>ron@rjconline.net</authorEmail>
+	<version>1.0.0</version>
+	<description>MOD_REGAUTH_XML_DESCRIPTION</description>
+	<namespace path="src">RJCreations\Module\Regauth</namespace>
+	<files>
+		<folder module="mod_regauth">services</folder>
+		<folder>language</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+	</files>
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field
+					name="authcode"
+					type="text"
+					required="true"
+					label="MOD_REGAUTH_AUTHCODE_LABEL"
+					description="MOD_REGAUTH_AUTHCODE_DESC"
+				/>
+				<field
+					name="expires"
+					type="number"
+					default="4"
+					min="1"
+					max="10"
+					label="MOD_REGAUTH_EXPIRES_LABEL"
+					description="MOD_REGAUTH_EXPIRES_DESC"
+				/>
+				<field
+					name="linktext"
+					type="text"
+					label="MOD_REGAUTH_LINKTEXT_LABEL"
+					description="MOD_REGAUTH_LINKTEXT_DESC"
+				/>
+			</fieldset>
+		</fields>
+	</config>
+</extension>
