@@ -12,24 +12,20 @@
 	<files>
 		<folder module="mod_regauth">services</folder>
 		<folder>language</folder>
+		<folder>sql</folder>
 		<folder>src</folder>
 		<folder>tmpl</folder>
 	</files>
 	<install>
 		<sql>
-			<file driver="mysql">install.mysql.sql</file>
+			<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
 		</sql>
-		<uninstall>
-			<sql>
-				<file driver="mysql">uninstall.mysql.sql</file>
-			</sql>
-		</uninstall>
-		<update>
-			<schemas>
-				<schemapath type="mysql">sql/updates/mysql</schemapath>
-			</schemas>
-		</update>
 	</install>
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
