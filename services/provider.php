@@ -1,9 +1,9 @@
 <?php
 /**
 * @package		mod_regauth
-* @copyright	Copyright (C) 2024 RJCreations. All rights reserved.
+* @copyright	Copyright (C) 2025 RJCreations. All rights reserved.
 * @license		GNU General Public License version 3 or later; see LICENSE.txt
-* @since		1.0.0
+* @since		1.0.5
 */
 \defined('_JEXEC') or die;
 

@@ -1,9 +1,9 @@
 <?php
 /**
 * @package		mod_regauth
-* @copyright	Copyright (C) 2024 RJCreations. All rights reserved.
+* @copyright	Copyright (C) 2025 RJCreations. All rights reserved.
 * @license		GNU General Public License version 3 or later; see LICENSE.txt
-* @since		1.0.0
+* @since		1.0.5
 */
 namespace RJCreations\Module\Regauth\Site\Dispatcher;
 
@@ -36,9 +36,10 @@ class Dispatcher implements DispatcherInterface
 
 		$authcode = $this->params->get('authcode', '');
 		$expires = (int) $this->params->get('expires', 4);
+		$uses = (int) $this->params->get('uses', 1);
 		$linktext = $this->params->get('linktext', TEXT::_('MOD_REGAUTH_LINKTEXT_DEFAULT'));
 
-		$lineone = RegauthHelper::inviteLink($authcode, $expires, $linktext);
+		$lineone = RegauthHelper::inviteLink($authcode, $expires, $uses, $linktext);
 
 		$tmpl = strpos($this->module->position, 'regauth')===false ? 'default' : 'inarticle';
 

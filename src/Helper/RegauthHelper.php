@@ -1,9 +1,9 @@
 <?php
 /**
 * @package		mod_regauth
-* @copyright	Copyright (C) 2024 RJCreations. All rights reserved.
+* @copyright	Copyright (C) 2025 RJCreations. All rights reserved.
 * @license		GNU General Public License version 3 or later; see LICENSE.txt
-* @since		1.0.0
+* @since		1.0.5
 */
 namespace RJCreations\Module\Regauth\Site\Helper;
 
@@ -16,9 +16,9 @@ use Joomla\CMS\Router\Route;
 class RegauthHelper
 {
 	// create the link to authorized registration
-	public static function inviteLink ($authcode, $expires, $txt=null)
+	public static function inviteLink ($authcode, $expires, $uses=1, $txt=null)
 	{
-		$authcode = base64_encode(self::orca((time()+84600*$expires).'||'.$authcode));
+		$authcode = base64_encode(self::orca((time()+84600*$expires).chr(0).$authcode.chr(0).$uses));
 		$url = Route::_('index.php?option=com_users&view=registration&_rga='.$authcode);
 		return '<a href="'.$url.'">'.($txt ?: $url).'</a>';
 	}

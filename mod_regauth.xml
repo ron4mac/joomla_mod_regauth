@@ -2,11 +2,11 @@
 <extension type="module" client="site" method="upgrade">
 	<name>mod_regauth</name>
 	<author>Ron Crans</author>
-	<creationDate>August 2024</creationDate>
-	<copyright>(C) 2024 RJCreations; All rights reserved</copyright>
+	<creationDate>July 2025</creationDate>
+	<copyright>(C) 2025 RJCreations; All rights reserved</copyright>
 	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
 	<authorEmail>ron@rjconline.net</authorEmail>
-	<version>1.0.0</version>
+	<version>1.0.5</version>
 	<description>MOD_REGAUTH_XML_DESCRIPTION</description>
 	<namespace path="src">RJCreations\Module\Regauth</namespace>
 	<files>
@@ -15,6 +15,21 @@
 		<folder>src</folder>
 		<folder>tmpl</folder>
 	</files>
+	<install>
+		<sql>
+			<file driver="mysql">install.mysql.sql</file>
+		</sql>
+		<uninstall>
+			<sql>
+				<file driver="mysql">uninstall.mysql.sql</file>
+			</sql>
+		</uninstall>
+		<update>
+			<schemas>
+				<schemapath type="mysql">sql/updates/mysql</schemapath>
+			</schemas>
+		</update>
+	</install>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
@@ -33,6 +48,15 @@
 					max="10"
 					label="MOD_REGAUTH_EXPIRES_LABEL"
 					description="MOD_REGAUTH_EXPIRES_DESC"
+				/>
+				<field
+					name="uses"
+					type="number"
+					default="1"
+					min="1"
+					max="100"
+					label="MOD_REGAUTH_USES_LABEL"
+					description="MOD_REGAUTH_USES_DESC"
 				/>
 				<field
 					name="linktext"
